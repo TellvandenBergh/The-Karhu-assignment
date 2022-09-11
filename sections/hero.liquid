@@ -1,0 +1,74 @@
+<div></div>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "id": "image",
+        "label": "Image",
+        "type": "image_picker"
+      },
+      {
+        "type": "range",
+        "id": "image_overlay_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Image overlay opacity",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "image_vertical_alignment",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Desktop vertical alignment",
+        "default": 50
+      },
+      {
+        "id": "image_height",
+        "type": "select",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "default": "medium",
+        "label": "Hero height"
+      },
+      {
+        "type": "header",
+        "content": "Mobile layout"
+      },
+      {
+        "type": "range",
+        "id": "image_horizontal_alignment",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Mobile horizoltal alignment",
+        "default": 50
+      }
+    ],
+    "presets": [
+      {
+       "name": "Hero"
+      }
+    ],
+    "templates": ["index"]
+  }
+{% endschema %}
