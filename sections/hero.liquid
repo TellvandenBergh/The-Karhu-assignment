@@ -1,4 +1,35 @@
-<div></div>
+{{ 'section-hero.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.image != blank -%}
+  {%- style -%}
+  #Hero-{{ section.id }} {
+    background-color: black;
+    line-height: 0;
+  }
+  .hero-image {
+    opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+    object-position: 50% {{ section.settings.image_vertical_alignment }}%;
+  }
+  {%- endstyle -%}
+{% endif %}
+<div id="Hero-{{ section.id }}" class="hero hero--content-align-{{ section.settings.desktop_content_alignment }}">
+  {%- if section.settings.image == blank -%}
+  {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- elsif section.settings.image != blank -%}
+    {%-liquid
+      assign image_height = 'image-height-' | append: section.settings.image_height
+      if section.settings.adapt_height_first_image
+        assign original_height = "original_height "
+      endif
+      assign classes = 'hero-image ' | append: image_height | append: original_height
+      -%}
+    {{ section.settings.image | image_url: width: 1500 | image_tag:
+      loading: 'lazy',
+      class: classes,
+      alt: section.settings.image.alt | escape
+    }}
+    {% endif %}
+</div>
+</div>
 
 {% schema %}
   {
@@ -17,14 +48,14 @@
         "step": 5,
         "unit": "%",
         "label": "Image overlay opacity",
-        "default": 0
+        "default": 90
       },
       {
         "type": "range",
         "id": "image_vertical_alignment",
         "min": 0,
         "max": 100,
-        "step": 1,
+        "step": 5,
         "unit": "%",
         "label": "Desktop vertical alignment",
         "default": 50
@@ -49,6 +80,13 @@
         "default": "medium",
         "label": "Hero height"
       },
+      {
+        "type": "checkbox",
+        "id": "adapt_height_first_image",
+        "default": false,
+        "label": "Original image height",
+        "info": "Overwrites image banner height setting when checked."
+      }, 
       {
         "type": "header",
         "content": "Mobile layout"

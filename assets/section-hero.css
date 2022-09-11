@@ -1,0 +1,16 @@
+.hero-image {
+  width: 100%;
+  object-fit: cover;
+}
+.image-height-small {
+  height: 30vh
+}
+.image-height-medium {
+  height: 50vh
+}
+.image-height-large {
+  height: 100vh
+}
+.original_height {
+ height: 100%;
+}
