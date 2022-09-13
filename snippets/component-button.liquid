@@ -1,0 +1,21 @@
+{%- style -%}
+  .component-button {
+    color: {{text_color}};
+    border-color: {{button_color}}60;
+    {%-if button_transparent -%}
+    background-color: transparent;
+    {% else %}
+    background-color: {{button_color}};
+    {% endif %}
+  }
+  .component-button:hover {
+    {%-if button_transparent -%}
+    background-color: {{button_color}}40;
+    border-color: transparent;
+    {% else %}
+    background-color: transparent;
+    color: {{button_color}};
+    {% endif %}
+  } 
+{%- endstyle -%}
+<a class="component-button" href="{{link}}">{{label}}</a>

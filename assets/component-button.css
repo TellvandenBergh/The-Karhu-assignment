@@ -1,0 +1,10 @@
+.component-button {
+  padding: 7px 31px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: 200ms;
+  text-decoration: none;
+  font-weight: lighter;
+  font-family: system-ui;
+  font-size: 15px;
+}
