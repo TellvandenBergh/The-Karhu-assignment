@@ -1,0 +1,27 @@
+
+.collections-slider {
+  width: 100%;
+  box-sizing: content-box;
+
+}
+
+.collection-container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.collection-img {
+  height: 100%;
+  width: 100%;
+}
+
+.collection-title {
+  position: absolute;
+}
+
+
+

@@ -1,0 +1,113 @@
+{{ 'section-collections-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-heading.css' | asset_url | stylesheet_tag }}
+{{ 'component-button.css' | asset_url | stylesheet_tag }}
+{{ 'glider.min.css' | asset_url | stylesheet_tag }}
+{{ 'glider.min.js' | asset_url | script_tag }}
+
+
+
+{% javascript %}
+  window.addEventListener('load', function(){
+    new Glider(document.querySelector('.glider'), {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      draggable: true,
+      dots: '.dots',
+      arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+      }
+    })
+  })
+{% endjavascript %}
+  
+  <div class="glider-contain collections-slider" >
+    <div class="glider">
+    {%- for block in section.blocks -%}
+      <div class="collection-container">
+        {{ block.settings.collection.featured_image | image_url: width: 500 | image_tag:
+          loading: 'lazy',
+          class: 'collection-img',
+          alt: block.settings.collection.featured_image.alt | escape
+        }}
+        <div class="collection-title">
+          {% render "component-heading", text: block.settings.collection.title | escape, size: block.settings.heading_size, color: block.settings.heading_color %}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+  <button aria-label="Previous" class="glider-prev">«</button>
+  <button aria-label="Next" class="glider-next">»</button>
+  
+</div>
+
+{% schema %}
+  {
+    "name": "Collections slider",
+    "settings": [
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading color",
+        "default": "#FFF"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "small",
+            "label": "small"
+          },
+          {
+            "value": "medium",
+            "label": "medium"
+          },
+          {
+            "value": "large",
+            "label": "large"
+          }
+        ],
+        "default": "small",
+        "label": "Heading size"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "collections-item",
+      "name": "Collections item",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "info": "Levae the label blank to use collection name"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "info": "Leave the label blank to hide the button."
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+    "name": "Collections slider",
+    "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}
