@@ -1,5 +1,5 @@
 {%- style -%}
-  .component-button {
+  .component-button-{{id}} {
     color: {{text_color}};
     border-color: {{button_color}}60;
     {%-if button_transparent -%}
@@ -8,7 +8,7 @@
     background-color: {{button_color}};
     {% endif %}
   }
-  .component-button:hover {
+  .component-button-{{id}}:hover {
     {%-if button_transparent -%}
     background-color: {{button_color}}40;
     border-color: transparent;
@@ -16,6 +16,6 @@
     background-color: transparent;
     color: {{button_color}};
     {% endif %}
-  } 
+  }
 {%- endstyle -%}
-<a class="component-button" href="{{link}}">{{label}}</a>
+<a class="component-button component-button-{{id}}" href="{{link}}">{{label}}</a>

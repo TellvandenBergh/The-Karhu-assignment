@@ -1,6 +1,24 @@
   {%- style -%}
-  .component-heading {
+  .component-heading-{{id}} {
     color: {{color}};
+    text-transform: uppercase;
+    font-weight: 600;
+    transform: scale(1, 1.2);
+  }
+  .heading-container-{{id}}:first-child {
+   margin-bottom: -12px; 
+  }
+  .heading-container-{{id}}:last-child {
+    margin-top: -12px; 
+   }
+  .component-heading-{{id}}-small {
+    font-size: 50px;
+  }
+  .component-heading-{{id}}-medium {
+    font-size: 65px;
+  }
+  .component-heading-{{id}}-large {
+    font-size: 80px;
   }
   {%- endstyle -%}
-  <div class="component-heading component-heading-{{size}}">{{text}}</div>
+  <div class="component-heading-{{id}} component-heading-{{id}}-{{size}}">{{text}}</div>
