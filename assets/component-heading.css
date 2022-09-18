@@ -1,44 +1,9 @@
-.component-heading {
-  color: white;
-  text-transform: uppercase;
-  font-weight: 600;
-  transform: scale(1, 1.2);
-}
-
-.heading-container {
+ .heading-container {
   line-height: normal;
-}
+  text-align: center;
 
-.heading-container:first-child {
- margin-bottom: -12px; 
 }
-
-.heading-container:last-child {
-  margin-top: -12px; 
- }
 
 .button-container {
   margin: 25px;
-}
-
-.component-heading-small {
-  font-size: 50px;
-}
-.component-heading-medium {
-  font-size: 65px;
-}
-.component-heading-large {
-  font-size: 80px;
-}
-
-@media only screen and (max-width: 750px) {
-  .component-heading-small {
-    font-size: 30px;
-  }
-  .component-heading-medium {
-    font-size: 40px;
-  }
-  .component-heading-large {
-    font-size: 50px;
-  }
 }

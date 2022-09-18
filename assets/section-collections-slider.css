@@ -1,0 +1,121 @@
+.collections-slider-collections_container {
+  height: 100%
+}
+
+.collections_slider-item_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px;
+  height: 100%;
+}
+
+.collections_slider-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.collections_slider-title {
+  position: absolute;
+}
+
+.collections_slider-button_container {
+  position: absolute;
+  bottom: 15%;
+}
+
+.glider-track {
+  height: 100%;
+  margin: auto !important;
+}
+
+.button-prev {
+  left: 0;
+  transition: 200ms;
+}
+
+.button-next {
+  right: 0;
+} 
+
+.glider-button {
+  position: absolute;
+  box-sizing: border-box;
+  top: calc(50% - 15px);
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 34px;
+  height: 34px;
+  margin: 0 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.collections-slider_placeholder {
+  background-color: lightgray;
+}
+
+.button-prev.disabled {
+  opacity: 0;
+}
+.button-next.disabled {
+  opacity: 0;
+}
+.button-prev:hover {
+  transform: translateX(-5px);
+}
+.button-next:hover {
+  transform: translateX(5px);
+}
+.button-prev::after,
+.button-prev::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: calc(50% - 6px);
+  
+}
+.button-prev::after {
+  width: 6px;
+  height: 6px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  transform: rotate(45deg);
+  bottom: calc(50% - 3px);
+}
+.button-prev::before {
+  width: 12px;
+  height: 1px;
+  bottom: calc(50% - 0.5px);
+  background: currentColor
+}
+
+.button-next::after,
+.button-next::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  right: calc(50% - 6px);
+}
+.button-next::after {
+  width: 6px;
+  height: 6px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  transform: rotate(225deg);
+  bottom: calc(50% - 3px);
+}
+.button-next::before {
+  width: 12px;
+  height: 1px;
+  bottom: calc(50% - 0.5px);
+  background: currentColor
+}

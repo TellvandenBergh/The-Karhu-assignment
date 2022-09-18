@@ -1,0 +1,207 @@
+{{ 'section-collections-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-heading.css' | asset_url | stylesheet_tag }}
+{{ 'component-button.css' | asset_url | stylesheet_tag }}
+{{ 'glider.min.css' | asset_url | stylesheet_tag }}
+{{ 'glider.min.js' | asset_url | script_tag }}
+
+  <script>
+    function initGlider() {
+      new Glider(document.querySelector('.glider'), {
+        slidesToShow: 1.5,
+        draggable: true,
+        arrows: {
+          prev: '.button-prev',
+          next: '.button-next'
+        },
+        responsive: [
+          {
+            breakpoint: 500,
+            settings: {
+              slidesToShow: 2.5
+            }
+          },
+          {
+            breakpoint: 800,
+            settings: {
+              slidesToShow: 3.5
+            }
+          },
+          {
+            breakpoint: 1100,
+            settings: {
+              slidesToShow: 4.5
+            }
+          },
+          {
+            breakpoint: 1400,
+            settings: {
+              slidesToShow: 5.5
+            }
+          }
+        ]
+      })
+    };
+    window.addEventListener("load", function() {
+      initGlider();
+    });
+    window.addEventListener('shopify:section:load', function() {
+      initGlider();
+    });
+    function dodod(url) {
+      window.location = url
+    }
+</script>  
+
+  {%- style -%}
+    .collections-slider-{{ section.id }} {
+      background-color: {{ section.settings.background_color }}
+    }
+    .glider-button, .button-prev::after, .button-next::after {
+      border-color: {{ section.settings.arrows_color }};
+    }
+    .button-prev::before, .button-next::before {
+      background: {{ section.settings.arrows_color }};
+    }
+    .glider-track {
+      height: {{ section.settings.height }}px;
+    }
+
+  {%- endstyle -%}
+
+  <div class="collections-slider-{{ section.id }}"  >
+    <div class="glider-contain" >
+      <div class="glider collections-slider-collections_container">
+        {%- for block in section.blocks -%}
+          <div class="collections_slider-item_container">
+            {%-liquid
+              if block.settings.heading == blank
+                assign title = block.settings.collection.title
+              else
+                assign title = block.settings.heading
+              endif
+              if block.settings.collection_image != blank
+                assign image_url = block.settings.collection_image
+              elsif block.settings.collection.featured_image != blank
+                assign image_url = block.settings.collection.featured_image
+              else 
+                assign image_url = blank
+              endif
+            -%}
+            {% if image_url != blank %}
+              {{ image_url | image_url: width: 500 | image_tag:
+                loading: 'lazy',
+                class: 'collections_slider-img',
+                alt: block.settings.collection.featured_image.alt | escape
+              }}
+            {% else %}
+              {{ 'collection-1' | placeholder_svg_tag: 'collections-slider_placeholder' }}
+            {% endif %}
+            <div class="collections_slider-title">
+              {% render "component-heading", id: section.id | escape, text: title | escape, size: 'small', color: section.settings.heading_color %}
+            </div>
+          <div class="collections_slider-button_container">
+            {% render "component-button", id: section.id | escape, label: block.settings.button_label | escape, link: block.settings.button_link, text_color: section.settings.text_color, button_color: section.settings.button_color, button_transparent: section.settings.button_transparent %}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <button aria-label="Previous" class="glider-button button-prev"></button>
+    <button aria-label="Next" class="glider-button button-next"></button>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collections slider",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#FFF"
+      },
+      {
+        "type": "number",
+        "id": "height",
+        "label": "Slider height",
+        "info": "In px"
+      },
+      {
+        "type": "color",
+        "id": "arrows_color",
+        "label": "Arrows color",
+        "default": "#FFF"
+      },
+      {
+        "type": "header",
+        "content": "Heading"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading color",
+        "default": "#FFF"
+      },
+      {
+        "type": "header",
+        "content": "Button"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Label color",
+        "default": "#FFF"
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "label": "Button color",
+        "default": "#FFF"
+      },
+      {
+        "type": "checkbox",
+        "id": "button_transparent",
+        "default": true,
+        "label": "Transparent"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "collections-item",
+      "name": "Collections item",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_image",
+          "label": "Collection",
+          "info": "Leave blank for default collection image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "info": "Levae the label blank to use collection name"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "info": "Leave the label blank to hide the button."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+    "name": "Collections slider",
+    "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}
