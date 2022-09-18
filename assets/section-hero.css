@@ -18,7 +18,6 @@
   object-fit: cover;
 }
 
-
 @media only screen and (min-width: 751px) {
   .desktop-image-height-small {
     height: 35vh
@@ -49,11 +48,11 @@
      }
 }
 
-
 .hero-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 275px;
 }
 
 .hero-content-container {
