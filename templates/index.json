@@ -48,10 +48,20 @@
             "heading": "Fitness",
             "button_label": "Shop"
           }
+        },
+        "ba7ec0ea-6623-4259-9152-88d1db4f2042": {
+          "type": "collections-item",
+          "settings": {
+            "collection": "",
+            "collection_image": "shopify:\/\/shop_images\/soccer-cleats-and-ball.jpg",
+            "heading": "Footbal",
+            "button_label": ""
+          }
         }
       },
       "block_order": [
-        "1631cc9e-f12b-46d2-9078-575bde7c4bb2"
+        "1631cc9e-f12b-46d2-9078-575bde7c4bb2",
+        "ba7ec0ea-6623-4259-9152-88d1db4f2042"
       ],
       "settings": {
         "background_color": "#ffffff",
