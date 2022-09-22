@@ -39,8 +39,23 @@
     },
     "16638368221fcb6b0c": {
       "type": "collections-slider",
+      "blocks": {
+        "1631cc9e-f12b-46d2-9078-575bde7c4bb2": {
+          "type": "collections-item",
+          "settings": {
+            "collection": "",
+            "collection_image": "shopify:\/\/shop_images\/arm-back-muscles.jpg",
+            "heading": "Fitness",
+            "button_label": "Shop"
+          }
+        }
+      },
+      "block_order": [
+        "1631cc9e-f12b-46d2-9078-575bde7c4bb2"
+      ],
       "settings": {
         "background_color": "#ffffff",
+        "height": 300,
         "arrows_color": "#ffffff",
         "heading_color": "#ffffff",
         "text_color": "#ffffff",
