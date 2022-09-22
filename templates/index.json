@@ -57,11 +57,48 @@
             "heading": "Footbal",
             "button_label": ""
           }
+        },
+        "d246d781-9ea8-4601-b774-4435ef7f5b6a": {
+          "type": "collections-item",
+          "settings": {
+            "collection": "kids",
+            "heading": "",
+            "button_label": ""
+          }
+        },
+        "30e8c17c-c8cf-4588-aff5-e27b0428539f": {
+          "type": "collections-item",
+          "settings": {
+            "collection": "frontpage",
+            "heading": "",
+            "button_label": ""
+          }
+        },
+        "33ee7733-9d26-41cf-a2ff-1a3098f91431": {
+          "type": "collections-item",
+          "settings": {
+            "collection": "woman",
+            "heading": "",
+            "button_label": ""
+          }
+        },
+        "dc538c08-5c34-4edb-a69e-5cb261f99aef": {
+          "type": "collections-item",
+          "settings": {
+            "collection": "",
+            "collection_image": "shopify:\/\/shop_images\/yoga-in-nature.jpg",
+            "heading": "Sale",
+            "button_label": "Shop now"
+          }
         }
       },
       "block_order": [
         "1631cc9e-f12b-46d2-9078-575bde7c4bb2",
-        "ba7ec0ea-6623-4259-9152-88d1db4f2042"
+        "ba7ec0ea-6623-4259-9152-88d1db4f2042",
+        "d246d781-9ea8-4601-b774-4435ef7f5b6a",
+        "30e8c17c-c8cf-4588-aff5-e27b0428539f",
+        "33ee7733-9d26-41cf-a2ff-1a3098f91431",
+        "dc538c08-5c34-4edb-a69e-5cb261f99aef"
       ],
       "settings": {
         "background_color": "#ffffff",
