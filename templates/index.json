@@ -7,7 +7,7 @@
           "type": "heading",
           "settings": {
             "heading": "Image banner",
-            "heading_color": "#FFF",
+            "heading_color": "#ffffff",
             "heading_size": "medium"
           }
         },
@@ -16,8 +16,8 @@
           "settings": {
             "button_label": "Button label",
             "button_link": "",
-            "text_color": "#FFF",
-            "button_color": "#FFF",
+            "text_color": "#ffffff",
+            "button_color": "#ffffff",
             "button_transparent": true
           }
         }
@@ -27,6 +27,7 @@
         "1663836817bb60a3e7-1"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/legs-running-on-track.jpg",
         "image_overlay_opacity": 40,
         "image_vertical_alignment": 50,
         "image_horizontal_alignment": 50,
@@ -39,11 +40,11 @@
     "16638368221fcb6b0c": {
       "type": "collections-slider",
       "settings": {
-        "background_color": "#FFF",
-        "arrows_color": "#FFF",
-        "heading_color": "#FFF",
-        "text_color": "#FFF",
-        "button_color": "#FFF",
+        "background_color": "#ffffff",
+        "arrows_color": "#ffffff",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "button_color": "#ffffff",
         "button_transparent": true
       }
     }
